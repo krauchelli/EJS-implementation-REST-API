@@ -24,3 +24,10 @@ router.get('/products/:id', async (req, res) => {
   const product = await Product.findById(req.params.id);
   res.render('products/show', { product });
 });
+
+// post routing
+router.post('/products', async (req, res) => {
+  const product = new Product(req.body);
+  await product.save();
+  res.redirect(`/products/${product.id}`);
+});
