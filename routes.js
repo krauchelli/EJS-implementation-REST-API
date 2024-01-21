@@ -42,3 +42,9 @@ router.put('/products/:id', async (req, res) => {
   const product = await Product.findByIdAndUpdate(req.params.id, req.body);
   res.redirect(`/products/${product._id}`);
 });
+
+// delete routing
+router.delete('/products/:id', async (req, res) => {
+  await Product.findByIdAndDelete(req.params.id);
+  res.redirect('/products');
+});
