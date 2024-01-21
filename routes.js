@@ -25,6 +25,12 @@ router.get('/products/:id', async (req, res) => {
   res.render('products/show', { product });
 });
 
+// edit specific product
+router.get('/products/:id/edit', async (req, res) => {
+  const product = await Product.findById(req.params.id);
+  res.render('products/edit', { product });
+});
+
 // post routing
 router.post('/products', async (req, res) => {
   const product = new Product(req.body);
