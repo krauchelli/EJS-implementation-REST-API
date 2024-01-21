@@ -37,3 +37,8 @@ router.post('/products', async (req, res) => {
   await product.save();
   res.redirect(`/products/${product.id}`);
 });
+
+router.put('/products/:id', async (req, res) => {
+  const product = await Product.findByIdAndUpdate(req.params.id, req.body);
+  res.redirect(`/products/${product._id}`);
+});
