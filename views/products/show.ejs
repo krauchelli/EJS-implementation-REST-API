@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Product Details</title>
+</head>
+<body>
+    <h1><%= product.name %></h1>
+    <ul>
+        <li>Brand: <%= product.brand%></li>
+        <li>Warna: <%= product.color%></li>
+        <li>Harga: <%= product.price%></li>
+        <li>
+            Kategori: <a href="/products?category=<%= product.category%>">
+                <%= product.category%>
+            </a>
+        </li>
+    </ul>
+    <a href="/products">Back to Index</a>
+    <a href="/products/<%= product._id%>/edit">Edit</a>
+    <form action="/products/<%= product._id%>?_method=DELETE" method="post">
+        <button type="submit">Delete Information</button>
+    </form>
+</body>
+</html>
